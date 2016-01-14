@@ -1,0 +1,17 @@
+<!--
+	qryStringCtrl gets the id from the query string passed from view1
+	makes secondary call to api to get details about the object.
+--><section id="display-content">
+
+	<div class="movieDtl" ng-controller="ParseQueryStringController as qryStringCtrl" >
+		<h1>{{moviesDtlItem.title}}</h1>
+		<img class="poster" src = "http://image.tmdb.org/t/p/w500{{moviesDtlItem.poster_path}}">	
+		<div class="movieStats">
+			<p>{{moviesDtlItem.tagline}}</p>
+			<p>{{moviesDtlItem.overview}}</p>
+			<p>vote: {{moviesDtlItem.vote_average}}</p>
+			<a href back-button>back to search </a>
+		</div>
+	</div>
+
+</section>y

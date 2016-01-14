@@ -1,0 +1,28 @@
+<!--
+	MovieController: This is the main search screen.  Bind form with the search box to SearchContoller.
+	Each result from the search query is bound to a div with a link generated using the movie.id.
+	movie.id is returned from the movie database api to pass through another call to the api in view2
+	
+-->
+<div ng-controller="MovieController as movieList">
+	<p> Type the name of the movie you want to search for to get more information about that movie:
+	<section id = "search">
+		<form ng-controller="SearchController as searchCtrl" ng-submit="searchCtrl.performSearch(movieList)" novalidate>
+			<input required class="form-control" type="text" ng-model="searchCtrl.search"/>
+			<input type="submit" value="Search" />
+		</form>
+	</section>
+	<section id="display-content">
+		<div ng-repeat="movie in movieList.movies">
+			<div class="movie-title" >
+				<a ng-href="#/view2?id={{movie.id}}">
+					<H2>{{movie.title}} <H2>
+				</a>
+				</div>
+				<div class="movie-overview" > 
+					<p>{{movie.overview}}</p> 
+					<p>Release Date: {{movie.release_date}}</p>
+				</div>
+			</div>
+		</section>
+	</div>
